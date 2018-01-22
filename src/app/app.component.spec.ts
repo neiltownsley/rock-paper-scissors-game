@@ -26,6 +26,6 @@ describe('AppComponent', () => {
   }));
 
   it(`should have as title 'Rock Paper Scissors Game'`, async(() => {
-    expect(title.getTitle()).toEqual('Rock Paper Scissors Game');
+    expect(title.getTitle()).toEqual('Rock, paper, scissors game');
   }));
 });

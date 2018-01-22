@@ -1,8 +1,17 @@
 #rockPaperScissorsContainer {
   margin: 50px 0 0 0;
 
-  h1,h2,h3 {
+  h1, h2, h3 {
     font-size: 20px;
+  }
+
+  .playerPanel {
+    margin: 20px 0 0 0;
+    min-height: 200px;
+  }
+
+  .alert {
+    margin: 20px 0 0 0;
   }
 
   #winner {

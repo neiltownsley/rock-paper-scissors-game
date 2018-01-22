@@ -27,10 +27,9 @@ export class WinningPlayerCalculator {
     }
   }
 
-
   private playerHasWinningRockPaperScissorsItem(playerSelection: RockPaperScissorsItemInterface,
                                                 computerSelection: RockPaperScissorsItemInterface): boolean {
-    return ( playerSelection.value - computerSelection.value + 3) % 3 === 1;
+    return ((playerSelection.value) - (computerSelection.value) + 3) % 3 === 1;
   }
 
 }

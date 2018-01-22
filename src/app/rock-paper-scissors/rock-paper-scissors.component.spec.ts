@@ -4,7 +4,7 @@ import {RandomRockPaperScissorsItemGenerator} from '../shared/rock-paper-scissor
 import {By} from '@angular/platform-browser';
 import {WinningPlayerCalculator} from '../shared/rock-paper-scissors/winning.player.calculator';
 import {DebugElement} from '@angular/core';
-import {RockPaperScissorsItemTypes} from "../shared/rock-paper-scissors/rock.paper.scissors.item.types";
+import {RockPaperScissorsItemTypes} from '../shared/rock-paper-scissors/rock.paper.scissors.item.types';
 
 describe('RockPaperScissorsComponent', () => {
   let component: RockPaperScissorsComponent;
