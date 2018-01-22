@@ -1,0 +1,25 @@
+<div id="rockPaperScissorsContainer">
+  <div class="row">
+    <div class="col-xs-6">
+      <h1 id="playerTitle">Player 1</h1>
+    </div>
+    <div class="col-xs-6">
+      <h1 id="computerTitle">Computer</h1>
+    </div>
+    <div class="col-xs-6">
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary"
+                *ngFor="let option of playerSelectionOptions"
+                (click)="playerSelectionEvent(option)"
+                id="{{option.name}}">{{option.name}}</button>
+      </div>
+      <h2 id="playerSelection" *ngIf="rockPaperScissorsGameModel?.playerSelection.name">Player 1 choice: {{rockPaperScissorsGameModel?.playerSelection.name}}</h2>
+    </div>
+    <div class="col-xs-6">
+      <h2 id="computerSelection" *ngIf="rockPaperScissorsGameModel?.computerPlayerSelection.name">Computer choice: {{rockPaperScissorsGameModel?.computerPlayerSelection.name}}</h2>
+    </div>
+    <div class="col-xs-12">
+      <h3 id="winner" *ngIf="rockPaperScissorsGameModel?.gameResult">{{rockPaperScissorsGameModel?.gameResult}}</h3>
+    </div>
+  </div>
+</div>
