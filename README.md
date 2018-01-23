@@ -4,15 +4,15 @@
 
 This is a basic version of the game, the game is started by the user selecting a rock, paper or scissors via a button which triggers the computer user to select an option at random, and then the winning player result of the game is displayed.
 
-#Problems
+# Problems
  * Choosing a random selection for the computer
  * Calculating the winner
 
-#Solutions
+# Solutions
  * I utilised `Math.floor(Math.random()` to get a random selection for the computer (see: random.rock.paper.scisscors.item.generator.ts)
  * I originally looked at calculating a winner by using a list of ternary's but after a little research I realised it could be resolved by using a basic modulus formula `((1) - (2) + 3) % 3 === 1` (see: winning.player.calculator.ts)
 
-#Improvements
+# Improvements
  * The game could benefit from a counter to keep track of the wins for each user and the display them as a scoreboard on the UI.
  * The game could also benefit from some visual improvements to the UI.
 
