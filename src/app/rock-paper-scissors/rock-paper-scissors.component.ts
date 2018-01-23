@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {WinningPlayerCalculator} from '../shared/rock-paper-scissors/winning.player.calculator';
 import {RockPaperScissorsItemInterface} from '../shared/rock-paper-scissors/rock.paper.scissors.item.interface';
 import {RockPaperScissorsGameInterface} from '../shared/rock-paper-scissors/rock.paper.scissors.game.interface';
-import {RandomRockPaperScissorsItemGenerator} from '../shared/rock-paper-scissors/random.rock.paper.scisscors.iterm.generator';
+import {RandomRockPaperScissorsItemGenerator} from '../shared/rock-paper-scissors/random.rock.paper.scissors.item.generator';
 import {RockPaperScissorsItemTypes} from '../shared/rock-paper-scissors/rock.paper.scissors.item.types';
 
 @Component({

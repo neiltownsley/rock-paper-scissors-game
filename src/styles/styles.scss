@@ -1,3 +1,4 @@
+@import '../../node_modules/font-awesome/css/font-awesome.css';
 #rockPaperScissorsContainer {
   margin: 50px 0 0 0;
 
@@ -7,11 +8,15 @@
 
   .playerPanel {
     margin: 20px 0 0 0;
-    min-height: 200px;
+    min-height: 230px;
   }
 
   .alert {
     margin: 20px 0 0 0;
+  }
+
+  .iconMarginRight  {
+    margin-right: 10px;
   }
 
   #winner {

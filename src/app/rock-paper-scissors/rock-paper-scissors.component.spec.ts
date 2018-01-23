@@ -1,6 +1,6 @@
 import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
 import {RockPaperScissorsComponent} from './rock-paper-scissors.component';
-import {RandomRockPaperScissorsItemGenerator} from '../shared/rock-paper-scissors/random.rock.paper.scisscors.iterm.generator';
+import {RandomRockPaperScissorsItemGenerator} from '../shared/rock-paper-scissors/random.rock.paper.scissors.item.generator';
 import {By} from '@angular/platform-browser';
 import {WinningPlayerCalculator} from '../shared/rock-paper-scissors/winning.player.calculator';
 import {DebugElement} from '@angular/core';
@@ -14,6 +14,7 @@ describe('RockPaperScissorsComponent', () => {
   let scissorsButton: DebugElement;
   let playerTitle: DebugElement;
   let computerTitle: DebugElement;
+  let gameInfo: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -32,6 +33,7 @@ describe('RockPaperScissorsComponent', () => {
     scissorsButton = fixture.debugElement.query(By.css('#Scissors'));
     playerTitle = fixture.debugElement.query(By.css('#playerTitle'));
     computerTitle = fixture.debugElement.query(By.css('#computerTitle'));
+    gameInfo = fixture.debugElement.query(By.css('#gameInfo'));
   });
 
   it('should create', () => {
@@ -45,6 +47,7 @@ describe('RockPaperScissorsComponent', () => {
     expect(scissorsButton.nativeElement.textContent).toEqual(RockPaperScissorsItemTypes.scissorsItemType.name);
     expect(playerTitle.nativeElement.textContent).toEqual('Player 1');
     expect(computerTitle.nativeElement.textContent).toEqual('Computer');
+    expect(gameInfo.nativeElement.textContent).toEqual('Select your weapon to start the game:');
   });
 
   it('when player 1 selects rock and computer selects paper, computer wins', async(inject(

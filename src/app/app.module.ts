@@ -4,7 +4,7 @@ import {AppComponent} from './app.component';
 import {RockPaperScissorsComponent} from './rock-paper-scissors/rock-paper-scissors.component';
 import {routingMap} from './app.routes';
 import {WinningPlayerCalculator} from './shared/rock-paper-scissors/winning.player.calculator';
-import {RandomRockPaperScissorsItemGenerator} from './shared/rock-paper-scissors/random.rock.paper.scisscors.iterm.generator';
+import {RandomRockPaperScissorsItemGenerator} from './shared/rock-paper-scissors/random.rock.paper.scissors.item.generator';
 
 
 @NgModule({
