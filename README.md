@@ -1,6 +1,9 @@
 # Rock Paper Scissors Game
 
+[Click here to run the game](https://neiltownsley.github.io/rock-paper-scissors-game/)
+
 ## Game Information
+
 
 This is a basic version of the game, the game is started by the user selecting a rock, paper or scissors via a button which triggers the computer user to select an option at random, and then the winning player result of the game is displayed.
 
