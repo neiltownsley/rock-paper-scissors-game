@@ -6,7 +6,7 @@ import {WinningPlayerCalculator} from '../shared/rock-paper-scissors/winning.pla
 import {DebugElement} from '@angular/core';
 import {RockPaperScissorsItemTypes} from '../shared/rock-paper-scissors/rock.paper.scissors.item.types';
 
-describe('RockPaperScissorsComponent', () => {
+fdescribe('RockPaperScissorsComponent', () => {
   let component: RockPaperScissorsComponent;
   let fixture: ComponentFixture<RockPaperScissorsComponent>;
   let rockButton: DebugElement;
@@ -15,6 +15,8 @@ describe('RockPaperScissorsComponent', () => {
   let playerTitle: DebugElement;
   let computerTitle: DebugElement;
   let gameInfo: DebugElement;
+  let player1Score: DebugElement;
+  let computerScore: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -34,6 +36,8 @@ describe('RockPaperScissorsComponent', () => {
     playerTitle = fixture.debugElement.query(By.css('#playerTitle'));
     computerTitle = fixture.debugElement.query(By.css('#computerTitle'));
     gameInfo = fixture.debugElement.query(By.css('#gameInfo'));
+    player1Score = fixture.debugElement.query(By.css('#player1Score'));
+    computerScore = fixture.debugElement.query(By.css('#computerScore'));
   });
 
   it('should create', () => {
@@ -69,6 +73,7 @@ describe('RockPaperScissorsComponent', () => {
       expect(winner.nativeElement.textContent).toEqual('Computer wins!!');
       expect(playerSelection.nativeElement.textContent).toEqual('Player 1 choice: Rock');
       expect(computerSelection.nativeElement.textContent).toEqual('Computer choice: Paper');
+      expect(computerSelection.nativeElement.textContent).toEqual(1);
       expect(randomRockPaperScissorsItemGenerator.getRandomRockPaperScissorsItem)
         .toHaveBeenCalledWith(component.playerSelectionOptions);
     })

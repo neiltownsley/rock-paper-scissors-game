@@ -4,4 +4,6 @@ export interface RockPaperScissorsGameInterface {
   computerPlayerSelection?: RockPaperScissorsItemInterface;
   playerSelection?: RockPaperScissorsItemInterface;
   gameResult?: string;
+  computerScore?: number;
+  playerScore?: number;
 }

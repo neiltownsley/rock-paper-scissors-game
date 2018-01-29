@@ -4,6 +4,7 @@ import {RockPaperScissorsItemInterface} from '../shared/rock-paper-scissors/rock
 import {RockPaperScissorsGameInterface} from '../shared/rock-paper-scissors/rock.paper.scissors.game.interface';
 import {RandomRockPaperScissorsItemGenerator} from '../shared/rock-paper-scissors/random.rock.paper.scissors.item.generator';
 import {RockPaperScissorsItemTypes} from '../shared/rock-paper-scissors/rock.paper.scissors.item.types';
+import {WinningPlayerInterface} from '../shared/rock-paper-scissors/winning.player.interface';
 
 @Component({
   selector: 'app-rock-paper-scissors',
@@ -32,10 +33,15 @@ export class RockPaperScissorsComponent implements OnInit {
 
   private setRockPaperScissorsGameModel(playerSelection: RockPaperScissorsItemInterface): void {
     const computerSelection = this.getRandomComputerSelection();
+    const winningPlayer: WinningPlayerInterface = this.winningPlayerCalculator
+      .getWinningPlayer(playerSelection, computerSelection);
+
     this.rockPaperScissorsGameModel = {
       computerPlayerSelection: computerSelection,
       playerSelection: playerSelection,
-      gameResult: this.winningPlayerCalculator.getWinningPlayer(playerSelection, computerSelection)
+      gameResult: winningPlayer.winningPlayerLabel,
+      playerScore: winningPlayer.playerPointCount,
+      computerScore: winningPlayer.computerPointCount
     };
   }
 

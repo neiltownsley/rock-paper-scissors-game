@@ -4,6 +4,7 @@
       <div class="playerPanel panel panel-default">
         <div class="panel-heading">
           <h1 id="playerTitle"><i class="iconMarginRight fa fa-user-circle-o" aria-hidden="true"></i>Player 1</h1>
+          <p id="player1score">Player 1 score: {{rockPaperScissorsGameModel?.playerScore}}</p>
         </div>
         <div class="panel-body">
           <p id="gameInfo"><i class="iconMarginRight fa fa-info-circle" aria-hidden="true"></i>Select your weapon to start the game:</p>
@@ -21,6 +22,7 @@
       <div class="playerPanel panel panel-default">
         <div class="panel-heading">
           <h1 id="computerTitle"><i class="iconMarginRight fa fa-user-circle-o" aria-hidden="true"></i>Computer</h1>
+          <p id="computerScore">Computer score: {{rockPaperScissorsGameModel?.computerScore}}</p>
         </div>
         <div class="panel-body">
           <h2 id="computerSelection" *ngIf="rockPaperScissorsGameModel?.computerPlayerSelection.name">Computer choice: {{rockPaperScissorsGameModel?.computerPlayerSelection.name}}</h2>

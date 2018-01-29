@@ -22,7 +22,7 @@ describe('WinningPlayerCalculator', () => {
     async(inject([WinningPlayerCalculator], (winningPlayerCalculator: WinningPlayerCalculator) => {
         expect(winningPlayerCalculator.getWinningPlayer(
           RockPaperScissorsItemTypes.rockItemType, RockPaperScissorsItemTypes.rockItemType)
-        ).toBe(playerDrawLabel);
+        ).toBe({playerDrawLabel});
       })
     ));
 

@@ -5,14 +5,15 @@ import {Title} from '@angular/platform-browser';
 
 describe('AppComponent', () => {
   let title: Title;
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-      imports: [RouterTestingModule]
-    }).compileComponents();
-  }));
+  beforeEach(async(
+    () => {
+      TestBed.configureTestingModule({
+        declarations: [
+          AppComponent
+        ],
+        imports: [RouterTestingModule]
+      }).compileComponents();
+    }));
 
   beforeEach(() => {
     title = TestBed.get(Title);
