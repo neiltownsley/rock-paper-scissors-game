@@ -1,12 +1,12 @@
-import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
-import {RockPaperScissorsComponent} from './rock-paper-scissors.component';
-import {RandomRockPaperScissorsItemGenerator} from '../shared/rock-paper-scissors/random.rock.paper.scissors.item.generator';
-import {By} from '@angular/platform-browser';
-import {WinningPlayerCalculator} from '../shared/rock-paper-scissors/winning.player.calculator';
-import {DebugElement} from '@angular/core';
-import {RockPaperScissorsItemTypes} from '../shared/rock-paper-scissors/rock.paper.scissors.item.types';
+import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
+import { RockPaperScissorsComponent } from './rock-paper-scissors.component';
+import { RandomRockPaperScissorsItemGenerator } from '../shared/rock-paper-scissors/random.rock.paper.scissors.item.generator';
+import { By } from '@angular/platform-browser';
+import { WinningPlayerCalculator } from '../shared/rock-paper-scissors/winning.player.calculator';
+import { DebugElement } from '@angular/core';
+import { RockPaperScissorsItemTypes } from '../shared/rock-paper-scissors/rock.paper.scissors.item.types';
 
-fdescribe('RockPaperScissorsComponent', () => {
+describe('RockPaperScissorsComponent', () => {
   let component: RockPaperScissorsComponent;
   let fixture: ComponentFixture<RockPaperScissorsComponent>;
   let rockButton: DebugElement;
@@ -15,8 +15,8 @@ fdescribe('RockPaperScissorsComponent', () => {
   let playerTitle: DebugElement;
   let computerTitle: DebugElement;
   let gameInfo: DebugElement;
-  let player1Score: DebugElement;
-  let computerScore: DebugElement;
+  let playerPoints: DebugElement;
+  let computerPoints: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -36,8 +36,8 @@ fdescribe('RockPaperScissorsComponent', () => {
     playerTitle = fixture.debugElement.query(By.css('#playerTitle'));
     computerTitle = fixture.debugElement.query(By.css('#computerTitle'));
     gameInfo = fixture.debugElement.query(By.css('#gameInfo'));
-    player1Score = fixture.debugElement.query(By.css('#player1Score'));
-    computerScore = fixture.debugElement.query(By.css('#computerScore'));
+    playerPoints = fixture.debugElement.query(By.css('#playerPoints'));
+    computerPoints = fixture.debugElement.query(By.css('#computerPoints'));
   });
 
   it('should create', () => {
@@ -73,9 +73,9 @@ fdescribe('RockPaperScissorsComponent', () => {
       expect(winner.nativeElement.textContent).toEqual('Computer wins!!');
       expect(playerSelection.nativeElement.textContent).toEqual('Player 1 choice: Rock');
       expect(computerSelection.nativeElement.textContent).toEqual('Computer choice: Paper');
-      expect(computerSelection.nativeElement.textContent).toEqual(1);
       expect(randomRockPaperScissorsItemGenerator.getRandomRockPaperScissorsItem)
         .toHaveBeenCalledWith(component.playerSelectionOptions);
+      expect(computerPoints.nativeElement.textContent).toEqual('Computer score: 1');
     })
   ));
 
@@ -93,6 +93,9 @@ fdescribe('RockPaperScissorsComponent', () => {
       paperButton.nativeElement.click();
       fixture.detectChanges();
 
+      paperButton.nativeElement.click();
+      fixture.detectChanges();
+
       const winner = fixture.debugElement.query(By.css('#winner'));
       const playerSelection = fixture.debugElement.query(By.css('#playerSelection'));
       const computerSelection = fixture.debugElement.query(By.css('#computerSelection'));
@@ -101,6 +104,9 @@ fdescribe('RockPaperScissorsComponent', () => {
       expect(computerSelection.nativeElement.textContent).toEqual('Computer choice: Rock');
       expect(randomRockPaperScissorsItemGenerator.getRandomRockPaperScissorsItem)
         .toHaveBeenCalledWith(component.playerSelectionOptions);
+      expect(randomRockPaperScissorsItemGenerator.getRandomRockPaperScissorsItem)
+        .toHaveBeenCalledTimes(2);
+      expect(playerPoints.nativeElement.textContent).toEqual('Player 1 score: 2');
     })
   ));
 
@@ -125,6 +131,7 @@ fdescribe('RockPaperScissorsComponent', () => {
       expect(computerSelection.nativeElement.textContent).toEqual('Computer choice: Rock');
       expect(randomRockPaperScissorsItemGenerator.getRandomRockPaperScissorsItem)
         .toHaveBeenCalledWith(component.playerSelectionOptions);
+      expect(computerPoints.nativeElement.textContent).toEqual('Computer score: 1');
     })
   ));
 
@@ -173,6 +180,8 @@ fdescribe('RockPaperScissorsComponent', () => {
       expect(computerSelection.nativeElement.textContent).toEqual('Computer choice: Scissors');
       expect(randomRockPaperScissorsItemGenerator.getRandomRockPaperScissorsItem)
         .toHaveBeenCalledWith(component.playerSelectionOptions);
+      expect(playerPoints.nativeElement.textContent).toEqual('Player 1 score: 0');
+      expect(computerPoints.nativeElement.textContent).toEqual('Computer score: 1');
     })
   ));
 
@@ -197,6 +206,7 @@ fdescribe('RockPaperScissorsComponent', () => {
       expect(computerSelection.nativeElement.textContent).toEqual('Computer choice: Paper');
       expect(randomRockPaperScissorsItemGenerator.getRandomRockPaperScissorsItem)
         .toHaveBeenCalledWith(component.playerSelectionOptions);
+      expect(playerPoints.nativeElement.textContent).toEqual('Player 1 score: 1');
     })
   ));
 
@@ -221,6 +231,8 @@ fdescribe('RockPaperScissorsComponent', () => {
       expect(computerSelection.nativeElement.textContent).toEqual('Computer choice: Scissors');
       expect(randomRockPaperScissorsItemGenerator.getRandomRockPaperScissorsItem)
         .toHaveBeenCalledWith(component.playerSelectionOptions);
+      expect(playerPoints.nativeElement.textContent).toEqual('Player 1 score: 0');
+      expect(computerPoints.nativeElement.textContent).toEqual('Computer score: 0');
     })
   ));
 
@@ -245,6 +257,8 @@ fdescribe('RockPaperScissorsComponent', () => {
       expect(computerSelection.nativeElement.textContent).toEqual('Computer choice: Rock');
       expect(randomRockPaperScissorsItemGenerator.getRandomRockPaperScissorsItem)
         .toHaveBeenCalledWith(component.playerSelectionOptions);
+      expect(playerPoints.nativeElement.textContent).toEqual('Player 1 score: 0');
+      expect(computerPoints.nativeElement.textContent).toEqual('Computer score: 0');
     })
   ));
 
@@ -269,6 +283,8 @@ fdescribe('RockPaperScissorsComponent', () => {
       expect(computerSelection.nativeElement.textContent).toEqual('Computer choice: Paper');
       expect(randomRockPaperScissorsItemGenerator.getRandomRockPaperScissorsItem)
         .toHaveBeenCalledWith(component.playerSelectionOptions);
+      expect(playerPoints.nativeElement.textContent).toEqual('Player 1 score: 0');
+      expect(computerPoints.nativeElement.textContent).toEqual('Computer score: 0');
     })
   ));
 

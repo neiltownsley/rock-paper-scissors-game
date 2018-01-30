@@ -1,6 +1,7 @@
-import {async, inject, TestBed} from '@angular/core/testing';
-import {WinningPlayerCalculator} from './winning.player.calculator';
-import {RockPaperScissorsItemTypes} from './rock.paper.scissors.item.types';
+import { async, inject, TestBed } from '@angular/core/testing';
+import { WinningPlayerCalculator } from './winning.player.calculator';
+import { RockPaperScissorsItemTypes } from './rock.paper.scissors.item.types';
+import { WinningPlayerInterface } from './winning.player.interface';
 
 describe('WinningPlayerCalculator', () => {
 
@@ -14,6 +15,16 @@ describe('WinningPlayerCalculator', () => {
       });
     }));
 
+  const getWinningPlayer = (winningPlayerLabel: string,
+                            playerPointCount?: number,
+                            computerPointCount?: number): WinningPlayerInterface => {
+    return {
+      winningPlayerLabel: winningPlayerLabel,
+      playerPointCount: playerPointCount,
+      computerPointCount: computerPointCount
+    };
+  };
+
   const computerPlayerWinLabel = 'Computer wins!!';
   const playerWinLabel = 'Player 1 wins!!';
   const playerDrawLabel = 'Its a Draw!!';
@@ -22,7 +33,7 @@ describe('WinningPlayerCalculator', () => {
     async(inject([WinningPlayerCalculator], (winningPlayerCalculator: WinningPlayerCalculator) => {
         expect(winningPlayerCalculator.getWinningPlayer(
           RockPaperScissorsItemTypes.rockItemType, RockPaperScissorsItemTypes.rockItemType)
-        ).toBe({playerDrawLabel});
+        ).toEqual(getWinningPlayer(playerDrawLabel, 0, 0));
       })
     ));
 
@@ -30,7 +41,7 @@ describe('WinningPlayerCalculator', () => {
     async(inject([WinningPlayerCalculator], (winningPlayerCalculator: WinningPlayerCalculator) => {
         expect(winningPlayerCalculator.getWinningPlayer(
           RockPaperScissorsItemTypes.paperItemType, RockPaperScissorsItemTypes.paperItemType)
-        ).toBe(playerDrawLabel);
+        ).toEqual(getWinningPlayer(playerDrawLabel, 0, 0));
       })
     ));
 
@@ -38,7 +49,7 @@ describe('WinningPlayerCalculator', () => {
     async(inject([WinningPlayerCalculator], (winningPlayerCalculator: WinningPlayerCalculator) => {
         expect(winningPlayerCalculator.getWinningPlayer(
           RockPaperScissorsItemTypes.scissorsItemType, RockPaperScissorsItemTypes.scissorsItemType)
-        ).toBe(playerDrawLabel);
+        ).toEqual(getWinningPlayer(playerDrawLabel, 0, 0));
       })
     ));
 
@@ -46,7 +57,7 @@ describe('WinningPlayerCalculator', () => {
     async(inject([WinningPlayerCalculator], (winningPlayerCalculator: WinningPlayerCalculator) => {
         expect(winningPlayerCalculator.getWinningPlayer(
           RockPaperScissorsItemTypes.scissorsItemType, RockPaperScissorsItemTypes.rockItemType)
-        ).toBe(computerPlayerWinLabel);
+        ).toEqual(getWinningPlayer(computerPlayerWinLabel, 0, 1));
       })
     ));
 
@@ -54,7 +65,7 @@ describe('WinningPlayerCalculator', () => {
     async(inject([WinningPlayerCalculator], (winningPlayerCalculator: WinningPlayerCalculator) => {
         expect(winningPlayerCalculator.getWinningPlayer(
           RockPaperScissorsItemTypes.rockItemType, RockPaperScissorsItemTypes.scissorsItemType)
-        ).toBe(playerWinLabel);
+        ).toEqual(getWinningPlayer(playerWinLabel, 1, 0));
       })
     ));
 
@@ -63,15 +74,16 @@ describe('WinningPlayerCalculator', () => {
     async(inject([WinningPlayerCalculator], (winningPlayerCalculator: WinningPlayerCalculator) => {
         expect(winningPlayerCalculator.getWinningPlayer
           (RockPaperScissorsItemTypes.scissorsItemType, RockPaperScissorsItemTypes.paperItemType)
-        ).toBe(playerWinLabel);
+        ).toEqual(getWinningPlayer(playerWinLabel, 1, 0));
       })
     ));
 
+
   it('getWinningPlayer, should calculate a computer win when player selected Paper and computer selects Scissors',
     async(inject([WinningPlayerCalculator], (winningPlayerCalculator: WinningPlayerCalculator) => {
-        expect(winningPlayerCalculator.getWinningPlayer(
-          RockPaperScissorsItemTypes.paperItemType, RockPaperScissorsItemTypes.scissorsItemType)
-        ).toBe(computerPlayerWinLabel);
+      expect(winningPlayerCalculator.getWinningPlayer(
+        RockPaperScissorsItemTypes.paperItemType, RockPaperScissorsItemTypes.scissorsItemType)
+      ).toEqual(getWinningPlayer(computerPlayerWinLabel, 0, 1));
       })
     ));
 
@@ -80,7 +92,7 @@ describe('WinningPlayerCalculator', () => {
     async(inject([WinningPlayerCalculator], (winningPlayerCalculator: WinningPlayerCalculator) => {
         expect(winningPlayerCalculator.getWinningPlayer(
           RockPaperScissorsItemTypes.paperItemType, RockPaperScissorsItemTypes.rockItemType)
-        ).toBe(playerWinLabel);
+        ).toEqual(getWinningPlayer(playerWinLabel, 1, 0));
       })
     ));
 
@@ -88,7 +100,7 @@ describe('WinningPlayerCalculator', () => {
     async(inject([WinningPlayerCalculator], (winningPlayerCalculator: WinningPlayerCalculator) => {
         expect(winningPlayerCalculator.getWinningPlayer(
           RockPaperScissorsItemTypes.rockItemType, RockPaperScissorsItemTypes.paperItemType)
-        ).toBe(computerPlayerWinLabel);
+        ).toEqual(getWinningPlayer(computerPlayerWinLabel, 0, 1));
       })
     ));
 });
