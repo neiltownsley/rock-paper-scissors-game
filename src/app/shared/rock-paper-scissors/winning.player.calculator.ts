@@ -14,11 +14,7 @@ export class WinningPlayerCalculator {
                           computerPlayerSelection: RockPaperScissorsItemInterface): WinningPlayerInterface {
     switch (playerSelection.value === computerPlayerSelection.value) {
       case true:
-        return {
-          winningPlayerLabel: this.playerDrawLabel,
-          computerPointCount: this.computerPointCount,
-          playerPointCount: this.playerPointCount
-        };
+        return this.getWiningPlayer(this.playerDrawLabel, this.playerPointCount, this.computerPointCount);
       default:
         return this.getCalculatedWinningPlayer(playerSelection, computerPlayerSelection);
     }
@@ -29,19 +25,19 @@ export class WinningPlayerCalculator {
     switch (this.playerHasWinningRockPaperScissorsItem(playerSelection, computerPlayerSelection)) {
       case true:
         this.playerPointCount = (this.playerPointCount) + (1);
-        return {
-          winningPlayerLabel: this.playerWinLabel,
-          playerPointCount: this.playerPointCount,
-          computerPointCount: this.computerPointCount
-        };
+        return this.getWiningPlayer(this.playerWinLabel, this.playerPointCount, this.computerPointCount);
       default:
         this.computerPointCount = (this.computerPointCount) + (1);
-        return {
-          winningPlayerLabel: this.computerPlayerWinLabel,
-          computerPointCount: this.computerPointCount,
-          playerPointCount: this.playerPointCount
-        };
+        return this.getWiningPlayer(this.computerPlayerWinLabel, this.playerPointCount, this.computerPointCount);
     }
+  }
+
+  private getWiningPlayer(winningPlayerLabel: string, playerPoints: number, computerPoints: number): WinningPlayerInterface {
+    return {
+      winningPlayerLabel: winningPlayerLabel,
+      playerPointCount: playerPoints,
+      computerPointCount: computerPoints
+    };
   }
 
   private playerHasWinningRockPaperScissorsItem(playerSelection: RockPaperScissorsItemInterface,
